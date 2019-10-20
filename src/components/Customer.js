@@ -1,13 +1,20 @@
 //react => import & export
 import React from'react'
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
 
 class Custmoer extends React.Component{
 render(){
     return(
         <div>
-            <CustmoerProfile id={this.props.id} image={this.props.img} name={this.props.name}>
-            </CustmoerProfile>
-            <CustmoerInfo birthday={this.props.birthday} gender={this.props.gender} job={this.props.job}/>
+           <TableRow>
+               <TableCell>{this.props.id}</TableCell>
+               <TableCell><img src={this.props.image} alt='profile'/></TableCell>
+               <TableCell>{this.props.name}</TableCell>
+               <TableCell>{this.props.birthday}</TableCell>
+               <TableCell>{this.props.job}</TableCell>
+               <TableCell>{this.props.gender}</TableCell>
+           </TableRow>
         </div>
         //props를 사용하여 구조화되어 출력 시킬것임
     )
@@ -15,27 +22,5 @@ render(){
 }
 //component는 React요소 => 화면에 출력, React요소는 jsx문법에 따름 =><div>컨테이너로 감싸야만 함
 
-class CustmoerProfile extends React.Component{
-    render(){
-        return(
-            <div>
-                <img src={this.props.image}alt="profile"/>
-                <h2>{this.props.name}({this.props.id})</h2>
-            </div>
-        )
-    }
-}
-
-class CustmoerInfo extends React.Component{
-    render(){
-        return(
-            <div>
-                <p>{this.props.birthday}</p>
-                <p>{this.props.gender}</p>
-                <p>{this.props.job}</p>
-            </div>
-        )
-    }
-}
 
 export default Custmoer;
